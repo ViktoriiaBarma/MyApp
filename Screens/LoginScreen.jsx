@@ -4,15 +4,14 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
   TextInput,
   TouchableWithoutFeedback,
-  KeyboardAvoidingView,
   Keyboard,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import Btn from "../Components/Button";
 import bgimg from "../assets/PhotoBG.png";
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -41,46 +40,44 @@ const Login = () => {
 
   return (
     <ImageBackground source={bgimg} resizeMode="cover" style={styles.image}>
-      <View style={styles.container}>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <KeyboardAvoidingView
-            behavior={Platform.OS === "android" ? "padding" : "height"}>
-            <Text style={styles.title}>Увійти</Text>
-            <View style={styles.inputBlock}>
-              <TextInput
-                style={[styles.input, isEmailFocused && styles.inputFocused]}
-                onFocus={handleEmailFocus}
-                placeholder="Адреса електронної пошти"
-                value={email}
-                onChangeText={(text) => setEmail(text)}
-              />
-            </View>
-            <View style={[styles.inputBlock, styles.passwordBlock]}>
-              <TextInput
-                style={[styles.input, isPasswordFocused && styles.inputFocused]}
-                onFocus={handlePasswordFocus}
-                placeholder="Пароль"
-                secureTextEntry={!showPassword}
-                value={password}
-                onChangeText={(text) => setPassword(text)}
-              />
-              <Text onPress={handleShowPassword} style={styles.togglePassword}>
-                {showPassword ? "Сховати" : "Показати"}
-              </Text>
-            </View>
-          </KeyboardAvoidingView>
-        </TouchableWithoutFeedback>
-
-        <View style={styles.buttonBlock}>
-          <Btn onPress={handleRegistration}>Увійти</Btn>
-          <Text style={styles.singupText}>
-            Немає акаунту?{" "}
-            <Text style={{ textDecorationLine: "underline" }}>
-              Зареєструватися
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Увійти</Text>
+          <View style={styles.inputBlock}>
+            <TextInput
+              style={[styles.input, isEmailFocused && styles.inputFocused]}
+              onFocus={handleEmailFocus}
+              placeholder="Адреса електронної пошти"
+              placeholderTextColor="#BDBDBD"
+              value={email}
+              onChangeText={(text) => setEmail(text)}
+            />
+          </View>
+          <View style={[styles.inputBlock, styles.passwordBlock]}>
+            <TextInput
+              style={[styles.input, isPasswordFocused && styles.inputFocused]}
+              onFocus={handlePasswordFocus}
+              placeholder="Пароль"
+              placeholderTextColor="#BDBDBD"
+              secureTextEntry={!showPassword}
+              value={password}
+              onChangeText={(text) => setPassword(text)}
+            />
+            <Text onPress={handleShowPassword} style={styles.togglePassword}>
+              {showPassword ? "Сховати" : "Показати"}
             </Text>
-          </Text>
+          </View>
+          <View style={styles.buttonBlock}>
+            <Btn onPress={handleRegistration}>Увійти</Btn>
+            <Text style={styles.singupText}>
+              Немає акаунту?{" "}
+              <Text style={{ textDecorationLine: "underline" }}>
+                Зареєструватися
+              </Text>
+            </Text>
+          </View>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
     </ImageBackground>
   );
 };
@@ -91,7 +88,9 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     backgroundColor: "#fff",
-    paddingHorizontal: 16,
+    paddingLeft: 16,
+    paddingRight: 16,
+    alignItems: "center",
     justifyContent: "flex-end",
     paddingBottom: 110,
   },
@@ -139,16 +138,10 @@ const styles = StyleSheet.create({
   },
   buttonBlock: {
     width: "100%",
-    marginBottom: 16,
-    // backgroundColor: "#fff",
-    // paddingHorizontal: 16,
-    // justifyContent: "flex-end",
-    // backgroundColor: "#fff",
   },
   singupText: {
     textAlign: "center",
     color: "#1B4371",
-    // paddingBottom: 110,
   },
 });
 

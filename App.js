@@ -3,9 +3,11 @@ import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import bgimg from "./assets/PhotoBG.png";
-import Login from "./Screens/LoginScreen";
+import Login from "./Screens/LoginScreen.jsx";
 import Registration from "./Screens/RegistrationScreen";
 import PostScreen from "./Screens/PostScreen.jsx";
+
+// import Logg from "./Screens/Logg.jsx";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -16,7 +18,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Registration />
+      <PostScreen />
       <StatusBar style="auto" />
     </View>
   );
