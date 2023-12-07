@@ -13,40 +13,35 @@ import {
 } from "react-native";
 
 import userImage from "../assets/User.png";
-import LogOut from "../assets/svg/log-out.svg";
-import Grid from "../assets/svg/grid.svg";
-import Post from "../assets/svg/new.svg";
-import User from "../assets/svg/user.svg";
+// import Grid from "../assets/svg/grid.svg";
+// import Post from "../assets/svg/new.svg";
+// import User from "../assets/svg/user.svg";
 
-const Posts = () => {
-  const [grid, setGrid] = useState(false);
-  const [post, setPost] = useState(true);
-  const [user, setUser] = useState(false);
+const PostsScreen = () => {
+  // const [grid, setGrid] = useState(false);
+  // const [post, setPost] = useState(true);
+  // const [user, setUser] = useState(false);
 
-  const handleGridIsActive = () => {
-    setGrid(true);
-    setPost(false);
-    setUser(false);
-  };
+  // const handleGridIsActive = () => {
+  //   setGrid(true);
+  //   setPost(false);
+  //   setUser(false);
+  // };
 
-  const handlePostIsActive = () => {
-    setGrid(false);
-    setPost(true);
-    setUser(false);
-  };
+  // const handlePostIsActive = () => {
+  //   setGrid(false);
+  //   setPost(true);
+  //   setUser(false);
+  // };
 
-  const handleUserIsActive = () => {
-    setGrid(false);
-    setPost(false);
-    setUser(true);
-  };
+  // const handleUserIsActive = () => {
+  //   setGrid(false);
+  //   setPost(false);
+  //   setUser(true);
+  // };
 
   return (
     <View style={styles.container}>
-      <View style={styles.head}>
-        <Text style={styles.headText}>Публікації</Text>
-        <LogOut style={styles.headIcon} />
-      </View>
       <View style={styles.body}>
         <View style={styles.user}>
           <View style={styles.userImg}>
@@ -59,7 +54,7 @@ const Posts = () => {
         </View>
       </View>
       <View style={styles.footer}>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={grid && styles.active}
           onPress={handleGridIsActive}>
           <Grid style={grid ? { color: "#fff" } : { color: "#212121" }} />
@@ -75,7 +70,7 @@ const Posts = () => {
           style={user && styles.active}
           onPress={handleUserIsActive}>
           <User style={user ? { color: "#fff" } : { color: "#212121" }} />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );
@@ -152,4 +147,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Posts;
+export default PostsScreen;

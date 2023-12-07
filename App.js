@@ -1,13 +1,14 @@
 import { useFonts } from "expo-font";
 
 import { StatusBar } from "expo-status-bar";
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import { ImageBackground, StyleSheet, Text, View, Button } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import bgimg from "./assets/PhotoBG.png";
-import Login from "./Screens/LoginScreen.jsx";
-import Registration from "./Screens/RegistrationScreen";
-import PostScreen from "./Screens/PostScreen.jsx";
 
-// import Logg from "./Screens/Logg.jsx";
+import MainNav from "./Navigation/MainNav";
+
+import Arrow from "./assets/svg/arrow-left.svg";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -17,10 +18,10 @@ export default function App() {
   });
 
   return (
-    <View style={styles.container}>
-      <PostScreen />
+    <NavigationContainer>
+      <MainNav />
       <StatusBar style="auto" />
-    </View>
+    </NavigationContainer>
   );
 }
 const styles = StyleSheet.create({

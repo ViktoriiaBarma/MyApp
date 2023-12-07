@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import {
   ImageBackground,
@@ -15,7 +16,9 @@ import {
 import Btn from "../Components/Button";
 import AddPhoto from "../assets/svg/add.svg";
 import bgimg from "../assets/PhotoBG.png";
-const Registration = () => {
+const RegistrationScreen = () => {
+  const navigation = useNavigation();
+
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,6 +26,7 @@ const Registration = () => {
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
   const handleLoginFocus = () => {
     setIsLoginFocused(true);
     setIsEmailFocused(false);
@@ -46,11 +50,13 @@ const Registration = () => {
     setLogin("");
     setEmail("");
     setPassword("");
+    navigation.navigate("Home");
   };
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
   return (
     <ImageBackground source={bgimg} resizeMode="cover" style={styles.image}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -61,6 +67,7 @@ const Registration = () => {
             </View>
           </View>
           <Text style={styles.title}>Реєстрація</Text>
+
           <View style={styles.inputBlock}>
             <TextInput
               style={[styles.input, isLoginFocused && styles.inputFocused]}
@@ -102,7 +109,11 @@ const Registration = () => {
             <Btn onPress={handleRegistration}>Зареєструватися</Btn>
             <Text style={styles.loginText}>
               Вже є акаунт?{" "}
-              <Text style={{ textDecorationLine: "underline" }}>Увійти</Text>
+              <Text
+                style={{ textDecorationLine: "underline" }}
+                onPress={() => navigation.navigate("Login")}>
+                Увійти
+              </Text>
             </Text>
           </View>
         </View>
@@ -186,4 +197,4 @@ const styles = StyleSheet.create({
     color: "#1B4371",
   },
 });
-export default Registration;
+export default RegistrationScreen;
