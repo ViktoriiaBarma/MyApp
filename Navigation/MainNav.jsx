@@ -1,11 +1,11 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import RegistrationScreen from "../Screens/RegistrationScreen";
-import LoginScreen from "../Screens/LoginScreen";
-import Home from "../Screens/Home";
 import PostsScreen from "../Screens/PostsScreen";
 import CreatePostScreen from "../Screens/CreatePostsScreen";
 import ProfileScreen from "../Screens/ProfileScreen";
 import MapScreen from "../Screens/MapScreen";
+import RegistrationScreen from "../Screens/RegistrationScreen";
+import LoginScreen from "../Screens/LoginScreen";
+import Home from "../Screens/Home";
 import CommentsScreen from "../Screens/CommentsScreen";
 
 import "react-native-gesture-handler";
@@ -21,7 +21,7 @@ const MainNav = () => {
         name="Register"
         component={RegistrationScreen}
         options={{
-          title: "Register",
+          title: "Реєстрація",
           headerShown: false,
         }}
       />
@@ -29,7 +29,7 @@ const MainNav = () => {
         name="Login"
         component={LoginScreen}
         options={{
-          title: "Login",
+          title: "Логін",
           headerShown: false,
         }}
       />
@@ -87,7 +87,7 @@ const MainNav = () => {
         name="Profile"
         component={ProfileScreen}
         options={{
-          headerBackImage: () => {},
+          // headerBackImage: () => {},
           title: "Створити публікацію",
           headerTitleAlign: "center",
           headerStyle: {
